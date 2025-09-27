@@ -1,0 +1,105 @@
+#############################
+# Monitor Settings
+#############################
+monitor=,preferred,auto,auto
+
+
+#############################
+# Keybinds
+#############################
+
+# System / WM
+bind = SUPER, R, exec, hyprctl reload
+bind = SUPER, RETURN, exec, kitty
+bind = SUPER, Q, killactive
+
+# Apps
+bind = SUPER, B, exec, chromium
+bind = SUPER, F, exec, wofi --show drun
+bind = SUPER, E, exec, pcmanfm
+bind = SUPER, D, exec, discord
+
+# Scratchpad workspace
+bind = SUPER, S, togglespecialworkspace, scratchpad
+bind = SUPER, A, movetoworkspacesilent, special:scratchpad
+
+# Mouse bindings
+bindm = SUPER, mouse:272, movewindow        # LMB drag = move
+bindm = SUPER, mouse:273, resizewindow      # RMB drag = resize
+
+# Screenshots
+bind = SUPER_SHIFT, S, exec, grim -g "$(slurp)" - | wl-copy
+
+
+# Lock Screen
+bind = SUPER_SHIFT, L, exec, ~/.local/bin/lock-bleach
+
+# Volume control
+bind = ,XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bind = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bind = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+
+#############################
+# Autostart Applications
+#############################
+exec-once = swaybg -i /home/Cloud9/Downloads/bleach_WP1.png -m fill
+exec-once = waybar
+exec-once = dunst -config ~/.config/dunst/dunstrc
+
+# Lockscreen
+exec-once = ~/.local/bin/lock-bleach
+exec-once = swayidle -w timeout 300 '~/.local/bin/lock-bleach' timeout 600 'systemctl suspend' resume '~/.local/bin/lock-bleach'
+
+
+#############################
+# Aesthetics – Bleach Theme
+# Black / Crimson / Beige
+#############################
+
+general {
+    gaps_in = 8
+    gaps_out = 16
+    border_size = 3
+
+    col.active_border = rgba(a83232ee) rgba(b22222ee) 90deg   # crimson gradient
+    col.inactive_border = rgba(1a1a1aff)                      # deep gray
+}
+
+decoration {
+    rounding = 10
+
+    blur {
+        enabled = yes
+        size = 6
+        passes = 2
+        brightness = 1.0
+        contrast = 1.0
+    }
+
+    shadow {
+        enabled = yes
+        range = 20
+        render_power = 3
+        color = rgba(00000099)
+    }
+}
+
+misc {
+    focus_on_activate = true
+    disable_splash_rendering = true
+}
+
+#############################
+# Window Rules
+#############################
+windowrulev2 = float, class:^(pavucontrol)$
+windowrulev2 = float, class:^(blueman-manager)$
+windowrulev2 = float, class:^(nm-connection-editor)$
+
+
+#############################
+# Environment
+#############################
+env = XCURSOR_SIZE,24
+
