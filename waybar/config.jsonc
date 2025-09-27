@@ -1,0 +1,61 @@
+{
+  // ===========================
+  // Waybar — Bleach Edition
+  // Modules: workspaces | window | audio, brightness, net, clock
+  // Font: JetBrainsMono Nerd Font
+  // ===========================
+
+  "layer": "top",
+  "position": "top",
+
+  // ---------- Modules ----------
+  "modules-left":   ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right":  ["pulseaudio", "custom/brightness", "network", "clock"],
+
+  // ---------- Hyprland ----------
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "default": "●",
+      "urgent":  "",
+      "active":  ""
+    }
+  },
+  "hyprland/window": {
+    "max-length": 60,
+    "separate-outputs": false
+  },
+
+  // ---------- Audio ----------
+  "pulseaudio": {
+    "format": "{volume}% ",
+    "format-muted": "",
+    "on-click": "pavucontrol",
+    "scroll-step": 3
+  },
+
+  // ---------- “Brightness” ----------
+  // Uses your script that reads ~/.cache/gammastep-brightness (or set it to read ddcutil if you switch)
+  "custom/brightness": {
+    "exec": "/home/Cloud9/.local/bin/gamma-level",
+    "interval": 1,
+    "return-type": "json",
+    "tooltip": true
+  },
+
+  // ---------- Network ----------
+  "network": {
+    "format-wifi": "{essid}  {signalStrength}%",
+    "format-ethernet": "{ifname} ",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname}  {ipaddr}/{cidr}"
+  },
+
+  // ---------- Clock ----------
+  "clock": {
+    "format": "{:%H:%M  %a %d %b}",
+    "tooltip-format": "{:%Y-%m-%d  %H:%M:%S}"
+  }
+}

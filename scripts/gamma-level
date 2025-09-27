@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+VAL=$(cat ~/.cache/gamma-bright 2>/dev/null || echo 1.00)
+
+# Convert to percentage (e.g. 0.95 → 95)
+PCT=$(awk -v v="$VAL" 'BEGIN{printf "%.0f", v*100}')
+
+# Output JSON for Waybar
+printf '{"text":"%s%%","tooltip":"Gamma brightness %s","class":"gamma"}' "$PCT" "$VAL"

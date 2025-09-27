@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Bleach-styled swaylock (blurred background, crimson accents, beige text)
+swaylock -f \
+  --daemonize \
+  --screenshots \
+  --effect-blur 7x5 \
+  --clock \
+  --indicator \
+  --indicator-radius 120 \
+  --indicator-thickness 8 \
+  --ring-color cc0000ff \
+  --ring-clear-color ff4444ff \
+  --ring-ver-color a83232ff \
+  --ring-wrong-color ff0000ff \
+  --key-hl-color e5e5c7ff \
+  --bs-hl-color ff5555ff \
+  --inside-color 0d0d0dcc \
+  --inside-clear-color 0d0d0dcc \
+  --inside-ver-color 0d0d0dcc \
+  --inside-wrong-color 0d0d0dcc \
+  --line-color cc0000ff \
+  --separator-color 00000000 \
+  --text-color e5e5c7ff \
+  --text-clear-color e5e5c7ff \
+  --text-ver-color e5e5c7ff \
+  --text-wrong-color ffffffff

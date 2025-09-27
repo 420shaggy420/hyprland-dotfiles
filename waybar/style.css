@@ -1,0 +1,62 @@
+/* ===========================
+   Waybar — Bleach Theme
+   Palette: black (#0b0b0c), crimson (#a83232/#b22222/#cc0000), beige (#d4c6b0)
+   Font: JetBrainsMono Nerd Font
+   =========================== */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* Bar shell */
+window#waybar {
+  background: #0b0b0c;      /* deep black */
+  color: #d4c6b0;           /* beige text */
+}
+
+/* Workspaces */
+#workspaces button {
+  padding: 0 6px;
+  color: #d4c6b0;
+}
+#workspaces button.active {
+  background: #a83232;      /* crimson */
+  color: #ffffff;
+}
+#workspaces button.urgent {
+  background: #cc0000;
+  color: #ffffff;
+}
+
+/* Center title */
+#window {
+  padding: 0 10px;
+  color: #d4c6b0;
+}
+
+/* Right-side modules */
+#pulseaudio, #custom-brightness, #network, #clock {
+  padding: 0 12px;
+  color: #b22222;           /* blood red accent */
+}
+
+/* Brightness badge */
+#custom-brightness {
+  border-left: 1px solid #1f1f1f;
+}
+
+/* Hover/active feedback */
+#pulseaudio:hover, #custom-brightness:hover, #network:hover, #clock:hover {
+  color: #ffffff;
+}
+
+/* Optional separators (subtle) */
+/*
+#pulseaudio, #custom-brightness, #network {
+  border-right: 1px solid #151515;
+}
+*/
