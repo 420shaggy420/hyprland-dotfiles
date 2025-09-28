@@ -1,6 +1,6 @@
 /* ===========================
    Waybar — Bleach Theme
-   Palette: black (#0b0b0c), crimson (#a83232/#b22222/#cc0000), beige (#d4c6b0)
+   Palette: black (#0b0b0c), crimson (#a83232/#b22222/#cc0000)
    Font: JetBrainsMono Nerd Font
    =========================== */
 
@@ -28,18 +28,18 @@ window#waybar {
   color: #ffffff;
 }
 #workspaces button.urgent {
-  background: #cc0000;
+  background: #cc0000;      /* bright red for urgent */
   color: #ffffff;
 }
 
-/* Center title */
+/* Center title (window name) */
 #window {
   padding: 0 10px;
   color: #d4c6b0;
 }
 
 /* Right-side modules */
-#pulseaudio, #custom-brightness, #network, #clock {
+#pulseaudio, #custom-brightness, #network, #battery, #clock {
   padding: 0 12px;
   color: #b22222;           /* blood red accent */
 }
@@ -50,13 +50,23 @@ window#waybar {
 }
 
 /* Hover/active feedback */
-#pulseaudio:hover, #custom-brightness:hover, #network:hover, #clock:hover {
+#pulseaudio:hover,
+#custom-brightness:hover,
+#network:hover,
+#battery:hover,
+#clock:hover {
   color: #ffffff;
 }
 
-/* Optional separators (subtle) */
-/*
+/* Optional separators (subtle)
 #pulseaudio, #custom-brightness, #network {
   border-right: 1px solid #151515;
 }
 */
+
+/* Battery coloring (match crimson accent) */
+#battery { padding: 0 8px; color: #b22222; }  /* default blood red */
+#battery.warning  { color: #cc4444; }         /* lighter red at <20% */
+#battery.critical { color: #ff2222; }         /* bright red at <10% */
+#battery.charging { color: #d93b3b; }         /* charging variant */
+
